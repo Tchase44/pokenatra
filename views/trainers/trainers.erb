@@ -1,0 +1,9 @@
+<a href="/trainers/add">Add a Trainer</a>
+<% @all_trainers.each do |person|%>
+	<% if person.level > 0 %>
+		<div class="containareon">
+			<h2><a href="/trainers/<%=person.id%>/profile"><%= person.name%></a></h2>
+			<img class="pokemon pro" src="<%=person.profile_img%>" alt="trainer image"><hr>
+		</div>
+	<%end%>
+<%end%>

@@ -5,9 +5,10 @@ require 'active_record'
 
 require_relative 'db/connection'
 require_relative 'models/pokemon'
+require_relative 'models/trainer'
 
 get '/pokemon' do
-	@the_list = Pokemon.all
+	@the_list = Pokemon.all.order(:id)
 	erb :all
 end
 get '/pokemon/new'do
@@ -42,5 +43,29 @@ put '/pokemon' do
 	@poke_stats.save
 	redirect '/pokemon'
 end
+
+get '/trainers' do
+	@all_trainers = Trainer.all
+	erb :'trainers/trainers'
+end
+
+get '/trainers/add' do
+	erb :'/trainers/add_trainer'
+end
+
+post '/trainers' do
+	@new_trainer = Trainer.create(name: params[:name],level: params[:level],profile_img: params[:pro_pic])
+	redirect '/trainers'
+end
+
+get '/trainers/:id/profile' do
+	@trainer = Trainer.find_by_id(params[:id])
+	@trainer_pokemon = Pokemon.where(trainer_id: @trainer.id)
+	erb :'/trainers/profile'
+end
+
+
+
+
 
 

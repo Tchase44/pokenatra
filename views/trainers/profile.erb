@@ -1,0 +1,12 @@
+<div class="containareon">
+	<h2><%=@trainer.name%></h2>
+	<p>Level: <%=@trainer.level%></p>
+	<img class="pokemon pro" src="<%=@trainer.profile_img%>">
+	<h2><%=@trainer.name%>'s Pokemon</h2>
+
+	<%@trainer_pokemon.each do |mon|%>
+		<p><a href="/pokemon/<%=mon.id%>"><%=mon.name%></a></p>
+	<%end%>
+
+</div>
+

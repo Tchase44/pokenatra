@@ -25,6 +25,7 @@ body {
   letter-spacing: .25em;
   font-size: 200%;
   text-align: center;
+  list-style: none;
 }
 
 a:hover {
@@ -39,6 +40,7 @@ a:hover {
   background-color: rgba(255, 255, 255, .8);
   text-align: center;
   justify-content: center;
+  list-style: none;
 }
 
 .pokemon{
@@ -54,7 +56,10 @@ a:hover {
   border-right-color: rgba(225, 225, 225, .5);
   border-bottom-color: rgba(225, 225, 225, .5);
 }
-
+.pro{
+  width: 325px;
+  height: 600px;
+}
 @keyframes pulse {
   0% {
     text-shadow: 4px 4px 3px rgba(255, 255, 255, .3);
