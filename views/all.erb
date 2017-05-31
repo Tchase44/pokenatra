@@ -1,0 +1,8 @@
+<a href="/pokemon/new">Add a Pokemon to the Collection</a>
+<% @the_list.each do |mons|%>
+<div>
+	<p><a href="/pokemon/<%=mons.id%>"><%=mons.name%></a></p>
+
+	<img src="<%=mons.img_url%>">
+</div>
+<%end%>
