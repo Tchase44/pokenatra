@@ -44,8 +44,9 @@ put '/pokemon' do
 	redirect '/pokemon'
 end
 
+
 get '/trainers' do
-	@all_trainers = Trainer.all
+	@all_trainers = Trainer.all.order(:name)
 	erb :'trainers/trainers'
 end
 
@@ -58,10 +59,32 @@ post '/trainers' do
 	redirect '/trainers'
 end
 
+delete '/trainers/:id'do
+	@trainer = Trainer.find_by_id(params[:id])
+	@trainer.destroy
+	redirect '/trainers'
+end
+
 get '/trainers/:id/profile' do
 	@trainer = Trainer.find_by_id(params[:id])
 	@trainer_pokemon = Pokemon.where(trainer_id: @trainer.id)
 	erb :'/trainers/profile'
+end
+
+get '/trainers/:id/edit' do 
+	@trainer_to_edit = Trainer.find_by_id(params[:id])
+	erb :'/trainers/edit_trainer'
+end
+
+get '/trainers/:id/catch' do
+	erb:'trainers/poke_to_trainer'
+end
+
+patch '/trainers' do 
+	@updated_trainer = Trainer.find_by_id(params[:id])
+	@updated_trainer.attributes = {name: params[:name],level: params[:level],profile_img: params[:img]}
+	@updated_trainer.save
+	redirect '/trainers'
 end
 
 

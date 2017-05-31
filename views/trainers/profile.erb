@@ -4,9 +4,18 @@
 	<img class="pokemon pro" src="<%=@trainer.profile_img%>">
 	<h2><%=@trainer.name%>'s Pokemon</h2>
 
+	<ul style="list-style: none;">
 	<%@trainer_pokemon.each do |mon|%>
-		<p><a href="/pokemon/<%=mon.id%>"><%=mon.name%></a></p>
+		<li><a href="/pokemon/<%=mon.id%>"><%=mon.name%></a></li>
 	<%end%>
-
+	</ul>
+<a href="/trainers/<%=@trainer.id%>/edit">Edit Trainer Info</a>
+<a href="/trainers/<%=@trainer.id%>/catch">Add a Pokemon</a>
+	<form action="/trainers/<%=@trainer.id%>" method="post">
+	  <input type="hidden" name="_method" value="delete">
+	  <input type="hidden" name="id" value="<%=@trainer.id%>">
+	  <label for="submit">Delete Trainer?</label>
+	  <input class="bnt" type="submit" value="Delete">
+	</form>
 </div>
 
