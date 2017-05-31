@@ -1,4 +1,4 @@
-<div>
+<div class="containareon">
 	<form action="/pokemon" method="POST">
 	<input type="hidden" name="_method" value="put">
 	<input type="hidden" name="id" value="<%=@target_pokemon.id%>">
@@ -7,14 +7,14 @@
 	<p>Do you want to give <%=@target_pokemon.name%> a nickname?</p>
 	<input type="text" name="name" placeholder="New Nickname" required>
 	
-	<p><%= @target_pokemon.poke_type%></p>
+	<p>Current Type(s): <%= @target_pokemon.poke_type%></p>
 	<input type="text" name="poke_type" placeholder="New type(s)" required>
 	
-	<p><%= @target_pokemon.cp%></p>
+	<p>Combat Power:<%= @target_pokemon.cp%></p>
 	<input type="number" name="cp" placeholder="combat power" required>
-	
+	<p>Cool Pic</p>
 	<input type="text" name="img" placeholder="<%=@target_pokemon.img_url%>" value="<%=@target_pokemon.img_url%>" required>
 	<input type="submit" name="sumbit">
 
-<img src="<%=@target_pokemon.img_url%>">
+<img class="pokemon" src="<%=@target_pokemon.img_url%>">
 </div>

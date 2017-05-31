@@ -1,8 +1,10 @@
+<div class="containareon">
 <a href="/pokemon/new">Add a Pokemon to the Collection</a>
+</div>
 <% @the_list.each do |mons|%>
-<div>
+<div class="containareon">
 	<p><a href="/pokemon/<%=mons.id%>"><%=mons.name%></a></p>
 
-	<img src="<%=mons.img_url%>">
+	<img class="pokemon" src="<%=mons.img_url%>">
 </div>
 <%end%>

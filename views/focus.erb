@@ -1,16 +1,16 @@
 
-<div >
+<div class="containareon">
 	<h2><%= @a_pokemon.name%></h2>
 	<p><%= @a_pokemon.poke_type%></p>
-	<p><%= @a_pokemon.cp%></p>
-	<img src="<%=@a_pokemon.img_url%>">
+	<p>Combat Power: <%= @a_pokemon.cp%></p>
+	<img class="pokemon" src="<%=@a_pokemon.img_url%>">
 
-<a href="/pokemon/<%=@a_pokemon.id%>/stats">Edit All Pokemon Stats</a>
+	<a href="/pokemon/<%=@a_pokemon.id%>/stats">Edit All Pokemon Stats</a>
 
-<form action="/pokemon/<%=@a_pokemon.id%>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="hidden" name="id" value="<%=@a_pokemon.id%>">
-  <h3>Do You want to release this pokemon?</h3>
-  <input type="submit" value="Release to the Wild">
-</form>
+	<form action="/pokemon/<%=@a_pokemon.id%>" method="post">
+	  <input type="hidden" name="_method" value="delete">
+	  <input type="hidden" name="id" value="<%=@a_pokemon.id%>">
+	  <h3>Do You want to release this pokemon?</h3>
+	  <input class="bnt" type="submit" value="Release to the Wild">
+	</form>
 </div>
